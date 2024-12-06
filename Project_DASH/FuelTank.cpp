@@ -15,8 +15,7 @@ FuelTank::FuelTank(unsigned int fuelAmountShader, float maxFuelAmount) {
 }
 
 void FuelTank::createFuelTankVertices() {
-    //this->fuelTankVertices = {
-    //    // Background (static, black outline)
+    //this->fuelTankVertices = {    
     //    -0.9f, -0.8f, 0.0f,  // Bottom left
     //    -0.7f, -0.8f, 0.0f,  // Bottom right
     //    -0.7f, -0.75f, 0.0f, // Top right

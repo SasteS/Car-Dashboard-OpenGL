@@ -7,21 +7,21 @@ AC::AC(unsigned int acShader, unsigned int textShader) {
 	this->c = Circle(100, 0.2f, false);
 
 	// State variables
-	this->currentTemperature = 20.0f; // Initial temperature
-	this->minTemperature = 15.0f;     // Minimum temperature
-	this->maxTemperature = 30.0f;     // Maximum temperature
+	this->currentTemperature = 20.0f;
+	this->minTemperature = 15.0f;
+	this->maxTemperature = 30.0f;
 	this->temperatureRatio = 0.5f;
 }
 
 void AC::createCircleVertices() {
 	this->circleVertices.push_back(glm::vec2(-0.125f, -0.5f)); // center of the circle
 
-	// Add the points on the circumference of the large circle
+	// Adding the points on the circumference of the large circle
 	for (int i = 0; i <= this->c.getNumSegments(); ++i) {
-		float angle = i * 2.0f * 3.14159265359 / this->c.getNumSegments(); // Calculate angle
+		float angle = i * 2.0f * 3.14159265359 / this->c.getNumSegments(); // Calculating angle
 		float x = this->c.getRadius() * cos(angle) - 0.125f; // X coordinate
 		float y = this->c.getRadius() * sin(angle) - 0.5; // Y coordinate
-		circleVertices.push_back(glm::vec2(x, y)); // Store the vertex
+		circleVertices.push_back(glm::vec2(x, y));
 	}
 }
 

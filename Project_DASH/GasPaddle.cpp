@@ -34,8 +34,8 @@ void GasPaddle::createProgressBar() {
 }
 
 void GasPaddle::updateProgressBar() {
-	this->progressBarVertices[7] = -0.3f + this->gasLevel * 0.6f; // Update top-right corner
-	this->progressBarVertices[10] = -0.3f + this->gasLevel * 0.6f; // Update top-left corner
+	this->progressBarVertices[7] = -0.3f + this->gasLevel * 0.6f;
+	this->progressBarVertices[10] = -0.3f + this->gasLevel * 0.6f;
 }
 
 unsigned int GasPaddle::getProgressBarShader() {

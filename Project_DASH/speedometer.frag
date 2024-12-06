@@ -1,11 +1,11 @@
 #version 330 core
 
-uniform vec2 resolution;  // Screen resolution
+uniform vec2 resolution;
 uniform vec2 circleCenter;  // Center of the circle in normalized space
-uniform bool useGradient;  // To toggle gradient effect
-uniform float radius;      // The radius of the circle
+uniform bool useGradient;
+uniform float radius;
 
-out vec4 FragColor;  // Output color of the fragment
+out vec4 FragColor;
 
 void main()
 {
@@ -18,7 +18,6 @@ void main()
     // Shift to circle center
     vec2 distVec = fragCoord - circleCenter;
 
-    // Calculate the distance from the center of the circle
     float distFromCenter = length(distVec);
 
     // Reverse the gradient direction: Bottom (0) to Top (1)

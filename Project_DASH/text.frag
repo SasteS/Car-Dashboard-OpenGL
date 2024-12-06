@@ -13,7 +13,7 @@ void main() {
     // Sample the texture
     vec4 sampled = vec4(1.0, 1.0, 1.0, texture(text, TexCoords).r);
     
-    // Determine the gradient factor based on texture coordinates
+    // Determines the gradient factor based on texture coordinates
     float gradientFactor = (TexCoords.x + TexCoords.y) * 0.5;    
     // Default gradient color
     vec3 gradientColor = mix(textColorStart, textColorEnd, gradientFactor);

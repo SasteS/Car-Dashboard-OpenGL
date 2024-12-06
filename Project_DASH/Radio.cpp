@@ -9,30 +9,7 @@ Radio::Radio(unsigned int radioShader) {
 	this->radioScreenWidth = -1000.0f;
 }
 
-void Radio::createRadioVertices() {
-    //this->radioLeftVertices = {
-    //    -0.355f, -0.3f, 0.0f, // Bottom-left
-    //    -0.32f, -0.3f, 0.0f, // Bottom-right
-    //    -0.32f, 0.3f, 0.0f, // Top-right
-    //    -0.355f, 0.3f, 0.0f  // Top-left
-    //};
-
-    //// Right rectangle vertices
-    //this->radioRightVertices = {
-    //    0.175f, -0.3f, 0.0f, // Bottom-left
-    //    0.21f, -0.3f, 0.0f, // Bottom-right
-    //    0.21f, 0.3f, 0.0f, // Top-right
-    //    0.175f, 0.3f, 0.0f  // Top-left
-    //};
-
-    //// Background rectangle vertices
-    //this->radioBackgroundVertices = {
-    //   -0.32f, -0.29f, 0.0f, // Bottom-left
-    //    0.175f, -0.29f, 0.0f, // Bottom-right
-    //    0.175f, 0.3f, 0.0f, // Top-right
-    //   -0.32f, 0.3f, 0.0f  // Top-left
-    //};
-    
+void Radio::createRadioVertices() {       
     // Left rectangle vertices with colors
     this->radioLeftVertices = {
         -0.355f, -0.3f, 0.0f,  0.02f, 0.0f, 0.02f, // Bottom-left 
@@ -49,7 +26,7 @@ void Radio::createRadioVertices() {
         0.175f, 0.3f, 0.0f,    0.02f, 0.0f, 0.02f  // Top-left
     };
 
-    // Background rectangle vertices with gradient fading inward
+    // Background rectangle vertices
     this->radioBackgroundVertices = {
         -0.32f, -0.29f, 0.0f,  0.02f, 0.0f, 0.04f, // Bottom-left
          0.175f, -0.29f, 0.0f, 0.02f, 0.0f, 0.04f, // Bottom-right
@@ -57,7 +34,7 @@ void Radio::createRadioVertices() {
         -0.32f, 0.3f, 0.0f,   0.3f, 0.0f, 0.4f  // Top-left 
     };
 
-    // Background rectangle vertices with gradient fading inward
+    // Background rectangle vertices
     this->radioButtonVertices = {
         -0.11f, 0.4f, 0.0f,  0.4f, 0.4f, 0.4f, // Bottom-left 
          0.0f, 0.4f, 0.0f, 0.4f, 0.4f, 0.4f, // Bottom-right

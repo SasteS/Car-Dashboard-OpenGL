@@ -2,8 +2,8 @@
 
 out vec4 FragColor;
 
-uniform mat4 projection;  // Projection matrix
-uniform vec2 resolution;  // Screen resolution
+uniform mat4 projection;
+uniform vec2 resolution;
 uniform bool isVisor;
 
 void main()
@@ -20,19 +20,18 @@ void main()
      vec3 colorTop;
      vec3 colorBottom;
     if (isVisor) {
-        // Define the two colors for the gradient
-        colorTop = vec3(0.0, 1.0, 1.0);  // Top color (light blue)
-        colorBottom = vec3(0.0, 0.0, 0.0); // Bottom color (red)
+        // Two colors for the gradient
+        colorTop = vec3(0.0, 1.0, 1.0);
+        colorBottom = vec3(0.0, 0.0, 0.0);
     }
     else {
-        // Define the two colors for the gradient
-        colorTop = vec3(0.2, 0.3, 0.8);  // Top color (light blue)
-        colorBottom = vec3(0.8, 0.2, 0.2); // Bottom color (red)
+        // Two colors for the gradient
+        colorTop = vec3(0.2, 0.3, 0.8);
+        colorBottom = vec3(0.8, 0.2, 0.2);
     }
 
     // Interpolate between the top and bottom color based on the y position
     vec3 color = mix(colorTop, colorBottom, distTopToBottom);
 
-    // Output the final color
     FragColor = vec4(color, 0.2f);
 }

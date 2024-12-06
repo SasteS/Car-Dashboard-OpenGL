@@ -1,10 +1,10 @@
 #version 330 core
 
-in vec3 color;       // Color passed from the vertex shader
-out vec4 FragColor;  // Final fragment color
+in vec3 color;
+out vec4 FragColor;
 
-uniform float alpha; // Alpha value (opacity)
+uniform float alpha;
 
 void main() {
-    FragColor = vec4(color, alpha); // Use the alpha uniform for transparency
+    FragColor = vec4(color, alpha);
 }

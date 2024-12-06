@@ -1,12 +1,12 @@
 #version 330 core
 
-layout(location = 0) in vec2 aPos; // Input vertex position
-uniform mat4 projection;          // Projection matrix
+layout(location = 0) in vec2 aPos;
+uniform mat4 projection;
 
-out vec2 fragPos; // Pass to fragment shader
+out vec2 fragPos;
 
 void main()
 {
-    fragPos = aPos; // Pass normalized position to fragment shader
+    fragPos = aPos;
     gl_Position = projection * vec4(aPos, 0.0, 1.0);
 }
