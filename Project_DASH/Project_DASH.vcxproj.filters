@@ -1,0 +1,240 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Resource Files\Shaders">
+      <UniqueIdentifier>{7f15264a-50a8-4c15-8b30-c55ec03298e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Shaders\Speedometer">
+      <UniqueIdentifier>{48e29fed-e5a5-4b99-acd8-b71bd8571737}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Shaders\Speedometer\Circles">
+      <UniqueIdentifier>{3c8faa67-ecd3-4935-803e-820550ae5281}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Shaders\Speedometer\Ticks">
+      <UniqueIdentifier>{5c723483-399c-4884-81a7-79ee409bd273}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Shaders\Speedometer\Needle">
+      <UniqueIdentifier>{607994e3-e33d-48b3-9555-05915ae5fd43}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Shaders\Text">
+      <UniqueIdentifier>{e266904f-9202-40f0-bddd-fa799bd0ac83}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Speedometer">
+      <UniqueIdentifier>{29f1ca62-fdf2-42f1-ace4-aba12464e207}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Speedometer">
+      <UniqueIdentifier>{dd8ef855-4492-4f0d-95f8-3af0b5026e41}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Tachometer">
+      <UniqueIdentifier>{d27a8e5f-f569-4704-b3b1-37215d41ef18}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Tachometer">
+      <UniqueIdentifier>{e56c244a-42b1-46d6-b82d-7bc6a07de2dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GasPaddle">
+      <UniqueIdentifier>{57c62de9-b660-4873-8c1a-d6acf38f5cc6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GasPaddle">
+      <UniqueIdentifier>{67ca597f-e3af-4b28-ac0b-22d396aee87d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Shaders\GasPaddle">
+      <UniqueIdentifier>{81c13a69-6dc9-416c-a152-b00f58cbb463}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Simulator">
+      <UniqueIdentifier>{d4a8f9fd-302b-43dc-ba22-62cf6bfc8122}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Simulator">
+      <UniqueIdentifier>{83e862b8-3492-48df-816a-40c33bd980ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\FuelTank">
+      <UniqueIdentifier>{fb21abb7-6e65-4c60-b23c-f9fce47e130a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\FuelTank">
+      <UniqueIdentifier>{b44ae0bf-6b7c-4144-916e-10413ba4f963}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\AC">
+      <UniqueIdentifier>{5d07c446-a9bd-4a6e-b40c-2ec7a05299bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\AC">
+      <UniqueIdentifier>{c7ef0a64-8538-49a4-b1dc-0c2a842cdba3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Shaders\AC">
+      <UniqueIdentifier>{5a02191f-4f8e-4d50-b9f8-de82ecd5bd37}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Blinkers">
+      <UniqueIdentifier>{05f07646-655d-4e81-9562-7720cb190d42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Blinkers">
+      <UniqueIdentifier>{6528f95d-6c8f-4a61-8c18-e4d89c3adcbc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Blinkers">
+      <UniqueIdentifier>{abb6a3cd-74e6-4f1d-b38b-8060bd1b0794}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Index">
+      <UniqueIdentifier>{73ded3c2-4849-4357-9aad-18d32325cf61}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Radio">
+      <UniqueIdentifier>{35b53786-ed10-4875-b520-4c23ba6e82d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Radio">
+      <UniqueIdentifier>{6146e1dc-6b11-42c9-8f39-3e2f8f84346d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Radio">
+      <UniqueIdentifier>{bdff4444-642a-46d7-b71d-12159178cfd6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Panel">
+      <UniqueIdentifier>{a4fc331e-58e7-466c-88ef-e12a05c47a5a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Texture">
+      <UniqueIdentifier>{b1b10424-d70e-46ba-bce5-195214d68407}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="speedometer.frag">
+      <Filter>Resource Files\Shaders\Speedometer\Circles</Filter>
+    </None>
+    <None Include="speedometer.vert">
+      <Filter>Resource Files\Shaders\Speedometer\Circles</Filter>
+    </None>
+    <None Include="ticks.vert">
+      <Filter>Resource Files\Shaders\Speedometer\Ticks</Filter>
+    </None>
+    <None Include="ticks.frag">
+      <Filter>Resource Files\Shaders\Speedometer\Ticks</Filter>
+    </None>
+    <None Include="needle.vert">
+      <Filter>Resource Files\Shaders\Speedometer\Needle</Filter>
+    </None>
+    <None Include="needle.frag">
+      <Filter>Resource Files\Shaders\Speedometer\Needle</Filter>
+    </None>
+    <None Include="text.vert">
+      <Filter>Resource Files\Shaders\Text</Filter>
+    </None>
+    <None Include="text.frag">
+      <Filter>Resource Files\Shaders\Text</Filter>
+    </None>
+    <None Include="progressBar.vert">
+      <Filter>Resource Files\Shaders\GasPaddle</Filter>
+    </None>
+    <None Include="progressBar.frag">
+      <Filter>Resource Files\Shaders\GasPaddle</Filter>
+    </None>
+    <None Include="acShader.vert">
+      <Filter>Resource Files\Shaders\AC</Filter>
+    </None>
+    <None Include="acShader.frag">
+      <Filter>Resource Files\Shaders\AC</Filter>
+    </None>
+    <None Include="blinker.vert">
+      <Filter>Resource Files\Blinkers</Filter>
+    </None>
+    <None Include="blinker.frag">
+      <Filter>Resource Files\Blinkers</Filter>
+    </None>
+    <None Include="index.vert">
+      <Filter>Resource Files\Index</Filter>
+    </None>
+    <None Include="index.frag">
+      <Filter>Resource Files\Index</Filter>
+    </None>
+    <None Include="radio.vert">
+      <Filter>Resource Files\Radio</Filter>
+    </None>
+    <None Include="radio.frag">
+      <Filter>Resource Files\Radio</Filter>
+    </None>
+    <None Include="panel.vert">
+      <Filter>Resource Files\Panel</Filter>
+    </None>
+    <None Include="panel.frag">
+      <Filter>Resource Files\Panel</Filter>
+    </None>
+    <None Include="texture.vert">
+      <Filter>Resource Files\Texture</Filter>
+    </None>
+    <None Include="texture.frag">
+      <Filter>Resource Files\Texture</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="speedometer.cpp">
+      <Filter>Source Files\Speedometer</Filter>
+    </ClCompile>
+    <ClCompile Include="Circle.cpp">
+      <Filter>Source Files\Speedometer</Filter>
+    </ClCompile>
+    <ClCompile Include="tachometer.cpp">
+      <Filter>Source Files\Tachometer</Filter>
+    </ClCompile>
+    <ClCompile Include="GasPaddle.cpp">
+      <Filter>Source Files\GasPaddle</Filter>
+    </ClCompile>
+    <ClCompile Include="Car.cpp">
+      <Filter>Source Files\Simulator</Filter>
+    </ClCompile>
+    <ClCompile Include="TestBed.cpp">
+      <Filter>Source Files\Simulator</Filter>
+    </ClCompile>
+    <ClCompile Include="FuelTank.cpp">
+      <Filter>Source Files\FuelTank</Filter>
+    </ClCompile>
+    <ClCompile Include="AC.cpp">
+      <Filter>Source Files\AC</Filter>
+    </ClCompile>
+    <ClCompile Include="Blinkers.cpp">
+      <Filter>Source Files\Blinkers</Filter>
+    </ClCompile>
+    <ClCompile Include="Radio.cpp">
+      <Filter>Source Files\Radio</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Circle.h">
+      <Filter>Header Files\Speedometer</Filter>
+    </ClInclude>
+    <ClInclude Include="speedometer.h">
+      <Filter>Header Files\Speedometer</Filter>
+    </ClInclude>
+    <ClInclude Include="tachometer.h">
+      <Filter>Header Files\Tachometer</Filter>
+    </ClInclude>
+    <ClInclude Include="GasPaddle.h">
+      <Filter>Header Files\GasPaddle</Filter>
+    </ClInclude>
+    <ClInclude Include="Car.h">
+      <Filter>Header Files\Simulator</Filter>
+    </ClInclude>
+    <ClInclude Include="TestBed.h">
+      <Filter>Header Files\Simulator</Filter>
+    </ClInclude>
+    <ClInclude Include="FuelTank.h">
+      <Filter>Header Files\FuelTank</Filter>
+    </ClInclude>
+    <ClInclude Include="AC.h">
+      <Filter>Header Files\AC</Filter>
+    </ClInclude>
+    <ClInclude Include="Blinkers.h">
+      <Filter>Header Files\Blinkers</Filter>
+    </ClInclude>
+    <ClInclude Include="Radio.h">
+      <Filter>Header Files\Radio</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
