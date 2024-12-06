@@ -74,9 +74,9 @@ int main(void)
     unsigned int textShader = createShader("text.vert", "text.frag");
 
     unsigned int progressBarShader = createShader("progressBar.vert", "progressBar.frag");
-    
+
     unsigned int acShader = createShader("acShader.vert", "acShader.frag");
-    
+
     unsigned int blinkersShader = createShader("blinker.vert", "blinker.frag");
 
     unsigned int indexShader = createShader("index.vert", "index.frag");
@@ -216,7 +216,7 @@ int main(void)
 
     // CREATING TACHOMETER CIRCLES
     tachometer.createCircles();
-    
+
     GLuint tachometerVBO, tachometerVAO;
     glGenVertexArrays(1, &tachometerVAO);
     glGenBuffers(1, &tachometerVBO);
@@ -313,7 +313,7 @@ int main(void)
 
     glBindVertexArray(tachometerNeedleVAO);
     glBindBuffer(GL_ARRAY_BUFFER, tachometerNeedleVBO);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat)* speedometer.getNeedleVertices().size(), speedometer.getNeedleVertices().data(), GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat) * speedometer.getNeedleVertices().size(), speedometer.getNeedleVertices().data(), GL_STATIC_DRAW);
 
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), (GLvoid*)0);
     glEnableVertexAttribArray(0);
@@ -321,7 +321,7 @@ int main(void)
 
     // ++++++++++++++++++++++++++++++++++++++++++++++++++++++ PROGRESS BAR ++++++++++++++++++++++++++++++++++++++++++++++++
     gasPaddle.createProgressBar();
-    
+
     float gasLevel = gasPaddle.getGasLevel();
     float gasIncrement = gasPaddle.getGasIncrement();
     float gasDecrement = gasPaddle.getGasDecrement();
@@ -343,7 +343,7 @@ int main(void)
     glBindBuffer(GL_ARRAY_BUFFER, 0);
     glBindVertexArray(0);
 
-    
+
     // CREATING FUEL TANK
     fuelTank.createFuelTankVertices();
 
@@ -366,24 +366,24 @@ int main(void)
 
     glBindBuffer(GL_ARRAY_BUFFER, fuelBarVBO);
     glBufferData(GL_ARRAY_BUFFER, combinedVertices.size() * sizeof(GLfloat), combinedVertices.data(), GL_DYNAMIC_DRAW);
-    
+
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), (void*)0);
     glEnableVertexAttribArray(0);
-    
+
     glBindBuffer(GL_ARRAY_BUFFER, 0);
     glBindVertexArray(0);
 
     // ++++++++++++++++++++++++++++++++++++++++++++++++++++++ BLINKERS ++++++++++++++++++++++++++++++++++++++++++++++++
     blinkers.createBlinkersVertices();
-    
+
     GLuint indicatorVAO, indicatorVBO;
-    
+
     glGenVertexArrays(1, &indicatorVAO);
     glGenBuffers(1, &indicatorVBO);
 
     glBindVertexArray(indicatorVAO);
     glBindBuffer(GL_ARRAY_BUFFER, indicatorVBO);
-    
+
 
     std::vector<float> blinkersVertices;
 
@@ -410,7 +410,7 @@ int main(void)
     radio.createRadioVertices();
 
     GLuint radioVAO, radioVBO;
-    
+
     glGenVertexArrays(1, &radioVAO);
     glGenBuffers(1, &radioVBO);
     glBindVertexArray(radioVAO);
@@ -478,7 +478,7 @@ int main(void)
     //--------------DriverId
     unsigned imageTexture = loadImageToTexture("Images/visor2.png");
     unsigned radioButtonTexture = loadImageToTexture("Images/radio-button.png");
-  
+
     std::cout << imageTexture << std::endl;
     std::cout << radioButtonTexture << std::endl;
 
@@ -577,7 +577,6 @@ int main(void)
     float visorSpeed = 0.01f;  // Speed of opening/closing
 
 
-    // Define initial parameters
     float initialY = 1.0f;
     float targetY = 0.1f;
     bool movingDown = false;  // Determines direction of movement
@@ -599,6 +598,7 @@ int main(void)
         float aspectRatio = (float)width / (float)height;
 
         // projection matrix adjusted for aspect ratio
+        // glm::ortho(left, right, bottom, top, near, far);
         glm::mat4 projection = glm::ortho(-aspectRatio, aspectRatio, -1.0f, 1.0f, -1.0f, 1.0f);
         unsigned int projectionLoc;
 
@@ -618,7 +618,7 @@ int main(void)
         glm::vec2 circleCenter = glm::vec2(-0.125f, -0.5f);
         unsigned int circleCenterLoc = glGetUniformLocation(ac.getAcShader(), "circleCenter");
         glUniform2fv(circleCenterLoc, 1, &circleCenter[0]);
-       
+
         float radius = 0.2f;
         unsigned int radiusLoc = glGetUniformLocation(ac.getAcShader(), "radius");
         glUniform1f(radiusLoc, radius);
@@ -626,9 +626,9 @@ int main(void)
         // Passing the temperature ratio (mapped to [0, 1])
         ac.mapTemperatureToRatio(); // Normalizing the temperature
         ac.mapTemperatureToRatio();
-       /* std::cout << ac.getCurrentTemperature() << std::endl;
-        std::cout << ac.getTemperatureRatio() << std::endl;
-        std::cout << "-----------" << std::endl;*/
+        /* std::cout << ac.getCurrentTemperature() << std::endl;
+         std::cout << ac.getTemperatureRatio() << std::endl;
+         std::cout << "-----------" << std::endl;*/
         GLuint temperatureLoc = glGetUniformLocation(ac.getAcShader(), "temperatureRatio");
         glUniform1f(temperatureLoc, ac.getTemperatureRatio());
 
@@ -637,19 +637,29 @@ int main(void)
         glBindVertexArray(0);
 
         // ----------------------------------- Text display
+        float temperature = ac.getCurrentTemperature();
+
         glUseProgram(ac.getTextShader());
 
         glUniform1i(glGetUniformLocation(ac.getTextShader(), "isGearText"), false);
 
+        // projection = glm::ortho(0.0f, 5000.0f, 0.0f, 3000.0f);
         projection = glm::ortho(0.0f, 5000.0f, 0.0f, 3000.0f);
         glUniformMatrix4fv(glGetUniformLocation(ac.getTextShader(), "projection"), 1, GL_FALSE, &projection[0][0]);
-        glUniform3f(glGetUniformLocation(ac.getTextShader(), "textColorStart"), 0.7f, 0.7f, 0.7f);
-        glUniform3f(glGetUniformLocation(ac.getTextShader(), "textColorEnd"), 0.2f, 0.2f, 0.2f);
+
+        if (temperature > 22) {
+            glUniform3f(glGetUniformLocation(ac.getTextShader(), "textColorStart"), 1.0f, 0.3f, 0.3f);
+            glUniform3f(glGetUniformLocation(ac.getTextShader(), "textColorEnd"), 0.2f, 0.2f, 0.2f);
+        }
+        else {
+            glUniform3f(glGetUniformLocation(ac.getTextShader(), "textColorStart"), 0.3f, 0.3f, 1.0f);
+            glUniform3f(glGetUniformLocation(ac.getTextShader(), "textColorEnd"), 0.2f, 0.2f, 0.2f);
+        }
 
         glActiveTexture(GL_TEXTURE0);
         glBindVertexArray(textVAO);
 
-        std::string currTemperatureLabel = std::to_string(ac.getCurrentTemperature()).substr(0,3) + "C";//std::to_string(speed);
+        std::string currTemperatureLabel = std::to_string(temperature).substr(0, 3) + "C";//std::to_string(speed);
 
         float x = 2155.0f;
         float y = 790.0f;
@@ -768,7 +778,7 @@ int main(void)
 
         x = 300.0f;
         y = 300.0f;
-     
+
         projection = glm::ortho(0.0f, 5000.0f, 0.0f, 3000.0f);
         glUniformMatrix4fv(glGetUniformLocation(textShader, "projection"), 1, GL_FALSE, &projection[0][0]);
 
@@ -777,6 +787,9 @@ int main(void)
 
         // No rotation applied here
         glUniformMatrix4fv(glGetUniformLocation(textShader, "model"), 1, GL_FALSE, &model[0][0]);
+
+        glUniform3f(glGetUniformLocation(ac.getTextShader(), "textColorStart"), 0.7f, 0.7f, 0.7f);
+        glUniform3f(glGetUniformLocation(ac.getTextShader(), "textColorEnd"), 0.2f, 0.2f, 0.2f);
 
         scale = 3.0f;
         xOffset = 0.0f;
@@ -789,7 +802,7 @@ int main(void)
 
             float w = ch.Size.x * scale;
             float h = ch.Size.y * scale;
-           
+
             float vertices[6][4] = {
                 { xpos,     ypos + h,   0.0f, 0.0f },
                 { xpos,     ypos,       0.0f, 1.0f },
@@ -811,12 +824,12 @@ int main(void)
 
         glBindVertexArray(0);
         glUseProgram(0);
-        
+
         // ------------------ background rendering
         glUseProgram(radio.getRadioShader());
 
         projection = glm::ortho(-1.0f, 1.0f, -1.0f, 1.0f);
-        glUniformMatrix4fv(glGetUniformLocation(radio.getRadioShader(), "projection"), 1, GL_FALSE, &projection[0][0]);     
+        glUniformMatrix4fv(glGetUniformLocation(radio.getRadioShader(), "projection"), 1, GL_FALSE, &projection[0][0]);
 
         glBindVertexArray(radioVAO);
         glDrawArrays(GL_TRIANGLE_FAN, 8, 4);
@@ -891,7 +904,7 @@ int main(void)
                 glm::mat4 model = glm::mat4(1.0f); // Identity matrix
                 model = glm::translate(model, glm::vec3(textPosX, 1550.0f, 0.0f)); // Translating by X and Y
                 glUniformMatrix4fv(glGetUniformLocation(textShader, "model"), 1, GL_FALSE, &model[0][0]);
-              
+
                 glActiveTexture(GL_TEXTURE0);
                 glBindVertexArray(textVAO);
 
@@ -907,7 +920,7 @@ int main(void)
 
                     float w = ch.Size.x * scale;
                     float h = ch.Size.y * scale;
-                   
+
                     float vertices[6][4] = {
                         { xpos,     ypos + h,   0.0f, 0.0f },
                         { xpos,     ypos,       0.0f, 1.0f },
@@ -935,16 +948,16 @@ int main(void)
 
             glUseProgram(0);
         }
-        else 
+        else
             glUseProgram(0);
 
         // rendering boundaries
         glUseProgram(radio.getRadioShader());
-        
+
         projection = glm::ortho(-1.0f, 1.0f, -1.0f, 1.0f);
         glUniformMatrix4fv(glGetUniformLocation(radio.getRadioShader(), "projection"), 1, GL_FALSE, &projection[0][0]);
 
-              
+
         glBindVertexArray(radioVAO);
         glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
         glDrawArrays(GL_TRIANGLE_FAN, 4, 4);
@@ -978,7 +991,7 @@ int main(void)
 
         glBindVertexArray(VAO);
         glDrawArrays(GL_TRIANGLE_FAN, 0, speedometer.getCircleOuter().getNumSegments() /*numSegments*/ + 2); // Draw the outer circle (large circle)
-      
+
         useGradient = true;
         glUniform1i(useGradientLoc, useGradient);
 
@@ -1031,7 +1044,7 @@ int main(void)
         glUniformMatrix4fv(glGetUniformLocation(speedometer.getTextShader(), "projection"), 1, GL_FALSE, &projection[0][0]);
         glUniform3f(glGetUniformLocation(speedometer.getTextShader(), "textColorStart"), 0.4f, 0.2f, 0.4f);
         glUniform3f(glGetUniformLocation(speedometer.getTextShader(), "textColorEnd"), 0.2f, 0.2f, 0.2f);
-        
+
         glActiveTexture(GL_TEXTURE0);
         glBindVertexArray(textVAO);
 
@@ -1044,7 +1057,7 @@ int main(void)
         radius = 360.0f;
         for (int i = 0; i < numLabels; ++i) {
             float angle = glm::radians(startAngle + i * (endAngle - startAngle) / (numLabels - 1));
-            float x = 1025.0f /*1050*/ + radius * cos(angle);
+            float x = /*1025.0f*/ 1050.0f + radius * cos(angle);
             float y = 1590.0f + radius * sin(angle);
 
             // Only translating the text based on its circular trajectory
@@ -1065,7 +1078,7 @@ int main(void)
 
                 float w = ch.Size.x * scale;
                 float h = ch.Size.y * scale;
-                
+
                 float vertices[6][4] = {
                     { xpos,     ypos + h,   0.0f, 0.0f },
                     { xpos,     ypos,       0.0f, 1.0f },
@@ -1099,8 +1112,8 @@ int main(void)
             currSpeedLabel = std::to_string(speed).substr(0, 3);
         }
 
-       /* float x = 970.0f;
-        float y = 1190.0f;*/
+        /* float x = 970.0f;
+         float y = 1190.0f;*/
         x = 970.0f;
         y = 1190.0f;
 
@@ -1115,7 +1128,7 @@ int main(void)
         //float xOffset = 0.0f;
         scale = 3.0f;
         xOffset = 0.0f;
-        
+
         for (char c : currSpeedLabel) {
             Character ch = Characters.at(c);
 
@@ -1124,7 +1137,7 @@ int main(void)
 
             float w = ch.Size.x * scale;
             float h = ch.Size.y * scale;
-            
+
             float vertices[6][4] = {
                 { xpos,     ypos + h,   0.0f, 0.0f },
                 { xpos,     ypos,       0.0f, 1.0f },
@@ -1150,7 +1163,7 @@ int main(void)
         glUseProgram(speedometer.getNeedleShader());
 
         needleAngle = glm::mix(120.0f, -120.0f, (speed - 0.0f) / (270.0f - 0.0f));
-       
+
         if (needleAngle == -120.0f)
             changeCourse = true;
         else if (needleAngle == 120)
@@ -1232,13 +1245,13 @@ int main(void)
 
             if (i % 2 == 1) {
                 opacity *= 0.5f;
-                
+
                 glLineWidth(1.5f);
             }
             else {
                 glLineWidth(3.0f);
             }
-            
+
             unsigned int tickColorLoc = glGetUniformLocation(tachometer.getTicksShader(), "tickColor");
             if (i % 2 == 1) {
                 glUniform3f(tickColorLoc, 1.0f, 1.0f, 1.0f);
@@ -1246,7 +1259,7 @@ int main(void)
             else {
                 glUniform3f(tickColorLoc, 1.0f, 0.012f, 0.012f);
             }
-            
+
             unsigned int opacityLoc = glGetUniformLocation(tachometer.getTicksShader(), "opacity");
             glUniform1f(opacityLoc, opacity);
 
@@ -1278,7 +1291,7 @@ int main(void)
         radius = 360.0f;
         for (int i = 0; i < numLabels; ++i) {
             float angle = glm::radians(startAngle + i * (endAngle - startAngle) / (numLabels - 1));
-            float x = 3530.0f /*3510.0f*/ + radius * cos(angle);
+            float x = /*3530.0f*/ 3510.0f + radius * cos(angle);
             float y = 1590.0f + radius * sin(angle);
 
             // Only translate the text based on its circular trajectory
@@ -1300,7 +1313,7 @@ int main(void)
 
                 float w = ch.Size.x * scale;
                 float h = ch.Size.y * scale;
-               
+
                 float vertices[6][4] = {
                     { xpos,     ypos + h,   0.0f, 0.0f },
                     { xpos,     ypos,       0.0f, 1.0f },
@@ -1321,7 +1334,7 @@ int main(void)
             }
         }
 
-        
+
         gear = car.getGear();
         // std::cout << gear << std::endl;
 
@@ -1373,7 +1386,7 @@ int main(void)
 
             float w = ch.Size.x * scale;
             float h = ch.Size.y * scale;
-            
+
             float vertices[6][4] = {
                 { xpos,     ypos + h,   0.0f, 0.0f },
                 { xpos,     ypos,       0.0f, 1.0f },
@@ -1406,7 +1419,7 @@ int main(void)
         else {
             needleAngle = glm::mix(120.0f, -120.0f, (tachometerValue - 0.0f) / (8849.47f - 0.0f));
         }
-     
+
         if (needleAngle == -120.0f)
             changeCourse = true;
         else if (needleAngle == 120)
@@ -1438,7 +1451,7 @@ int main(void)
 
         // ++++++++++++++++++++++++++++++++ BLINKERS ++++++++++++++++++++++++
         glUseProgram(blinkers.getBlinkersShader());
-        
+
         if (glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS && !leftBlinkerActive && !rightBlinkerActive) {
             leftBlinkerActive = true;
             blinkerStartTime = glfwGetTime(); // Start blinking
@@ -1501,7 +1514,7 @@ int main(void)
                 glUniform1f(glGetUniformLocation(blinkers.getBlinkersShader(), "alpha"), 1.0f);
                 glDrawArrays(GL_TRIANGLES, 9, 3);
             }
-          
+
             if (elapsed >= maxBlinks * 2 * blinkInterval) {
                 rightBlinkerActive = false; // Stop blinking
             }
@@ -1524,7 +1537,7 @@ int main(void)
         glBindVertexArray(panelVAO);
         glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
         glBindVertexArray(0);
-   
+
         glBindVertexArray(0);
 
         glUseProgram(0);
@@ -1543,7 +1556,7 @@ int main(void)
         }
 
         std::cout << translationY << std::endl;
-      
+
         if (startTime != -1.0f) {
             float elapsedTime = static_cast<float>(glfwGetTime()) - startTime;
 
@@ -1579,14 +1592,6 @@ int main(void)
 
         glUseProgram(textureShader);
 
-        glActiveTexture(GL_TEXTURE0);
-        glBindTexture(GL_TEXTURE_2D, imageTexture);
-        glUniform1i(glGetUniformLocation(textureShader, "uTex"), 0);
-
-        glBindVertexArray(textureVAO);
-        glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
-        glBindVertexArray(0);
-
         // Rendering radio button
         glBindTexture(GL_TEXTURE_2D, radioButtonTexture);
         glUniform1i(glGetUniformLocation(textureShader, "uTex"), 0);
@@ -1594,6 +1599,17 @@ int main(void)
         glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, (void*)(6 * sizeof(unsigned int))); // Draw next 6 indices (radio button)
 
         glBindVertexArray(0);
+
+        // Rendering visor
+        glActiveTexture(GL_TEXTURE0);
+        glBindTexture(GL_TEXTURE_2D, imageTexture);
+        glUniform1i(glGetUniformLocation(textureShader, "uTex"), 0);
+
+        glBindVertexArray(textureVAO);
+        glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+        
+        glBindVertexArray(0);
+
 
 
         // ++++++++++++++++++++++++++++++++++++ INDEX +++++++++++++++++++++++++++++++
@@ -1605,7 +1621,7 @@ int main(void)
 
         glm::vec3 textColor(0.7f, 0.7f, 0.7f);
         glUniform3f(glGetUniformLocation(indexShader, "textColor"), textColor.x, textColor.y, textColor.z);
-        
+
         glActiveTexture(GL_TEXTURE0);
         glBindVertexArray(textVAO);
 
@@ -1615,7 +1631,7 @@ int main(void)
         y = 100.0f;
         scale = 2.0f;
         xOffset = 0.0f;
-        
+
         for (char c : indexLabel) {
             Character ch = Characters.at(c);
 
